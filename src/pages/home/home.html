@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <ion-item>
+         <ion-label>State</ion-label>
+         <ion-select (ionChange)="setCityValues(sState)"[(ngModel)]="sState">
+             <ion-option [value]="sState" *ngFor="let sState of states">{{sState.name}} </ion-option>
+         </ion-select>
+     </ion-item>
+     <ion-item *ngIf="selectedCities">
+        <ion-label>City</ion-label>
+        <ion-select (ionChange)="setKitchensValues(sCity)" [(ngModel)]="sCity">
+            <ion-option [value]="sCity" *ngFor="let sCity of selectedCities">{{sCity.name}}</ion-option>
+        </ion-select>
+     </ion-item>
+       <ion-item *ngIf="selectedKitchens">
+        <ion-label>Kitchen</ion-label>
+        <ion-select>
+            <ion-option [value]="kitchen.name" *ngFor="let kitchen of selectedKitchens">{{kitchen.name}}</ion-option>
+        </ion-select>
+     </ion-item>
+</ion-content>
